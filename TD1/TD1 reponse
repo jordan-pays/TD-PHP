@@ -1,0 +1,90 @@
+3.7 
+
+Exercice 4 
+Qu’écrivent chacun des echo suivants ?
+
+$prenom = "Marc";
+
+echo "Bonjour " . $prenom; donne Bonjour Marc
+echo "Bonjour $prenom"; donne Bonjour Marc
+echo 'Bonjour $prenom'; donne Bonjour $prenom
+
+echo $prenom;  Marc
+echo "$prenom"; Marc
+
+Exercice 5 
+
+2) Créez la commande PHP qui écrit dans votre fichier le code HTML suivant (en remplaçant bien sûr la marque par le contenu de la variable $marque …) :
+
+<p> Voiture 256AB34 de marque Renault (couleur bleu) </p>
+
+ SOLUTION :
+
+<body>
+      <p>
+        <?php
+        $marque = "audi";
+        $couleur = "rouge";
+        $immatriculation = "547ZP471";
+          echo " Voiture $immatriculation de marque $marque \n (couleur $couleur ) ";
+        ?>
+      </p>
+</body>
+
+
+
+3)
+
+    Affichez le contenu de la “voiture-tableau” au même format HTML
+
+<p> Voiture 256AB34 de marque Renault (couleur bleu) </p>
+
+Solution :
+
+<?php
+        $voiture = array ( 
+          'immatriculation' => 'ZYE587RGU',
+          'marque' => 'audi',
+          'couleur' => 'rouge'
+        );
+        $texte = "Voiture {$voiture['immatriculation']}  de marque {$voiture['marque']} \n (couleur {$voiture['couleur']} )";
+        echo $texte;
+        ?>
+ 4)
+
+<?php
+        $voitures = array();
+        $voiture = array ( 
+          'immatriculation' => 'ZYE587RGU',
+          'marque' => 'audi',
+          'couleur' => 'rouge'
+        );
+        $voiture1 = array ( 
+          'immatriculation' => '484DSFG',
+          'marque' => 'clio',
+          'couleur' => 'noir'
+        );
+        $voiture2 = array ( 
+          'immatriculation' => '54DEIJ',
+          'marque' => 'BMW',
+          'couleur' => 'Blanche'
+        );
+        /*$voitures[] = $voiture;
+        $voitures[] = $voiture1;
+        $voitures[] = $voiture2;*/
+        if (empty($voitures)){
+          echo "Il n’y a aucune voiture";
+        }
+        echo "<ul>";
+        foreach ($voitures as $voiture ) {
+          foreach ($voiture as $key => $value) {
+         echo "<li> $key : $value </li>"; 
+        }
+       echo "<br>";
+      }
+       echo "</ul>";
+        ?>
+
+
+
+
