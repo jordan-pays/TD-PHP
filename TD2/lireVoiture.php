@@ -8,14 +8,17 @@
     <body>
     	<?php
 			require_once 'Model.php';
-			$rep = Model::$pdo->query('Select * from voiture');
-			$tab_obj = $rep->fetchAll(PDO::FETCH_OBJ);
-			var_dump ($tab_obj);
+			require_once '/home/ann2/paysj/public_html/TD-PHP/TD1/Voiture.php';
+			$tab_voit = Voiture::getAllVoitures();
+			foreach ($tab_voit as $key) {
+				echo $key->afficher();
+			}
+			/*var_dump ($tab_obj);
 			foreach ($tab_obj as $key1) {
 				foreach ($key1 as $key => $value) {
 					echo "<br> $key est $value";
 				}
-			}
+			}*/
 			?>
 	</body>
 </html>
