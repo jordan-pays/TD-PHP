@@ -16,9 +16,17 @@ class Trajet{
 		$this->$nom_attribut = $valeur;
 	}
 
-	public function __construct($data){
-		foreach ($data as $key => $value) {
+	public function __construct($data = null){
+		if(!is_null($data)){
+			foreach ($data as $key => $value) {
 			$this->$key=$value;
+			}
 		}
 	}
+	
+	public static function getAllTrajet() {
+    	$rep = Model::$pdo->query('Select * from Trajet');
+    	$rep->setFetchMode(PDO::FETCH_CLASS, 'Trajet');;
+    	return $rep->fetchAll();
+  }
 }
