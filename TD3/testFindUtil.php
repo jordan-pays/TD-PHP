@@ -11,10 +11,10 @@
         require_once 'Voiture.php';
         require_once 'Utilisateur.php';
         require_once 'Trajet.php';
-        $tab_uti=Trajet::findPassagers(3);
-        var_dump($tab_uti);
+        $tab_uti=Trajet::findPassagers($_GET['trajet']);
         foreach ($tab_uti as $key){
             $key->afficher();
+            echo"<br>";
         }
         ?>
     </body>

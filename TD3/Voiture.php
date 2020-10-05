@@ -45,7 +45,7 @@ class Voiture {
   }       
   // une methode d'affichage.
   public function afficher() {
-    return "la marque de la voiture est $this->marque, d'une couleur $this->couleur, immatriculé $this->immatriculation <br>";
+    echo "La marque de la voiture est $this->marque, d'une couleur $this->couleur, immatriculé $this->immatriculation <br>";
   }
 
   public static function getAllVoitures() {
